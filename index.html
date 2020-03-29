@@ -120,14 +120,14 @@
 		
 	</script>
 	
-	<form target="_blank" action="/action_page.php" id="genreForm" onSubmit="return getGenre()">
+	<form action="/action_page.php" id="genreForm">
 		<select id="genreOption">
 			<option value="defaulOpt">Choose a Genre</option>
 			<option value="Pop">Pop</option>
 			<option value="Indie">Indie</option>
 			<option value="Rap">Rap</option>
 		</select>
-		<input type="submit" value="Filter">
+		<input type="button" onclick = "getGenre()" value="Filter">
 	</form>
 	
 	
