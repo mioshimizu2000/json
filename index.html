@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSON</title>
+</head>
+
+<body>
+
+	
+	<script language="javascript">
+		
+		var objectlist = {
+			
+			"list1":
+				{
+					"name": "When the Party's Over",
+					"artist": "Billie Eilish", 
+					"genre": "Pop", 
+					"released": "2019"
+				},
+			"list2":
+				{
+					"name": "ROXANNE", 
+					"artist": "Arizona Zervas", 
+					"genre": "Rap", 
+					"released": "2019"
+				},
+			"list3":
+				{
+					"name": "Wow.", 
+					"artist": "Post Malone", 
+					"genre": "Pop", 
+					"released": "2019"
+				},
+			"list4":
+				{
+					"name": "HIGHEST IN THE ROOM", 
+					"artist": "Travis Scott", 
+					"genre": "Rap", 
+					"released": "2019"
+				},
+			"list5":
+				{
+					"name": "Beautiful People", 
+					"artist": "Ed Sheeran (feat. Khalid)", 
+					"genre": "Pop", 
+					"released": "2019"
+				},
+			"list6":
+				{
+					"name": "Candy Paint", 
+					"artist": "Post Malone", 
+					"genre": "Pop", 
+					"released": "2018"
+				},
+			"list7":
+				{
+					"name": "Imagination", 
+					"artist": "Foster The People", 
+					"genre": "Indie", 
+					"released": "2019"
+				},
+			"list8":
+				{
+					"name": "Icon", 
+					"artist": "Jaden", 
+					"genre": "Rap", 
+					"released": "2018"
+				},
+			"list9":
+				{
+					"name": "Peach Fuzz", 
+					"artist": "Tyler, The Creator", 
+					"genre": "Indie", 
+					"released": "Pop"
+				},
+			"list10":
+				{
+					"name": "Are You Bored Yet?", 
+					"artist": "Wallows", 
+					"genre": "Indie", 
+					"released": "2019"
+				},
+			
+			
+			
+		}
+		
+		var liststring = JSON.stringify(objectlist);
+		var jsonlist = JSON.parse(liststring);
+		
+		
+		
+		for (var i = 1; i < 11; i++) 
+		{
+			var makebold = jsonlist["list" + i].name
+			document.write(makebold.bold() + "<br>");
+			document.write("Artist: " + jsonlist["list" + i].artist + "<br>");
+			document.write("Genre: " + jsonlist["list" + i].genre + "<br>");
+			document.write("Released " + jsonlist["list" + i].released + "<br><br>");
+		}
+		
+		function getGenre() {
+			var chosenOpt = document.getElementById("genreOption");
+			var optText = chosenOpt.options[chosenOpt.selectedIndex].text;
+			
+			for (var i = 1; i < 11; i++)
+			{
+				var listGenre = jsonlist["list" + i].genre
+				if(optText == listGenre) {
+					var makebold = jsonlist["list" + i].name
+					document.write(makebold.bold() + "<br>");
+					document.write("Artist: " + jsonlist["list" + i].artist + "<br>");
+					document.write("Genre: " + jsonlist["list" + i].genre + "<br>");
+					document.write("Released " + jsonlist["list" + i].released + "<br><br>");
+				}
+			}
+		}
+		
+	</script>
+	
+	<form action="/action_page.php" id="genreForm" onSubmit="return getGenre()">
+		<select id="genreOption">
+			<option value="defaulOpt">Choose a Genre</option>
+			<option value="Pop">Pop</option>
+			<option value="Indie">Indie</option>
+			<option value="Rap">Rap</option>
+		</select>
+		<input type="submit" value="Filter">
+	</form>
+	
+	
+</body>
+	
+</html>
